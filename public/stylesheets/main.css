@@ -1,0 +1,37 @@
+.headerBar{
+    background-color:#8c1313;
+    list-style-type:none;
+    margin:0;
+    padding:0;
+    overflow:hidden;
+    border-bottom-style:solid;
+    border-bottom-color:#000000;
+    border-bottom-width:2px;
+}
+.headerElement{
+    float:left;
+    color:white;
+    padding:10px;
+    text-align:center;
+    font-size:1.3em;
+    font-family:monospace;
+    
+}
+body{
+    margin:0;
+}
+.leftBar{
+    position:absolute;
+    width: 250px;
+    height:100%;
+    background-color:#DDDDDD;
+    border-right-style:solid;
+    border-right-color:#000000;
+    border-right-width:1px;
+
+}
+.main{
+    position:absolute;
+    left:250px;
+    padding-left:10px;
+}
