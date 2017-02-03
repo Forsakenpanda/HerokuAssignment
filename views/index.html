@@ -95,7 +95,7 @@
                 <div class="submittedTable" ng-show="countries.length>0">
                     <ul ng-repeat="country in countries">
                         <h2>{{country}}</h2>
-                        <div ng-repeat="entry in table">
+                        <div ng-repeat="entry in table" ng-if="country == entry.country">
                             <li class="rantElement">Commercial Rant Count: {{entry.comCount}}</li>
                             <li class="rantElement">Employee/Employer Rant Count: {{entry.empCount}}</li>
                             <li class="rantElement">Entertainment Rant Count: {{entry.entCount}}</li>
