@@ -1,0 +1,13 @@
+ALTER TABLE `heroku_03065dfaf589cd4`.`posts` 
+DROP FOREIGN KEY `fk_username`;
+ALTER TABLE `heroku_03065dfaf589cd4`.`posts` 
+DROP INDEX `username_idx` ;
+TRUNCATE users
+ALTER TABLE `heroku_03065dfaf589cd4`.`posts` 
+ADD INDEX `fk_username_idx` (`username` ASC);
+ALTER TABLE `heroku_03065dfaf589cd4`.`posts` 
+ADD CONSTRAINT `fk_username`
+  FOREIGN KEY (`username`)
+  REFERENCES `heroku_03065dfaf589cd4`.`users` (`username`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION;

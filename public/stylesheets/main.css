@@ -1,5 +1,18 @@
+html{
+    font-family:monospace;
+}
 .headerBar{
     background-color:#8c1313;
+    list-style-type:none;
+    margin:0;
+    padding:0;
+    overflow:hidden;
+    border-bottom-style:solid;
+    border-bottom-color:#000000;
+    border-bottom-width:2px;
+}
+.navBar{
+    background-color:#7a1313;
     list-style-type:none;
     margin:0;
     padding:0;
@@ -14,8 +27,23 @@
     padding:10px;
     text-align:center;
     font-size:1.3em;
-    font-family:monospace;
-    
+    font-family:monospace;  
+}
+
+.navElement{
+    float:left;
+    color:white;
+    padding:10px;
+    text-align:center;
+    font-size:1.2em;
+    font-family:monospace; 
+    border-right-style: solid;
+    border-right-color:#000000;
+    border-right-width:1px; 
+}
+
+.navElement:hover{
+    background-color:#6c1313;
 }
 body{
     margin:0;
@@ -23,15 +51,93 @@ body{
 .leftBar{
     position:absolute;
     width: 250px;
-    height:100%;
+    height:auto;
+    min-height:100%;
     background-color:#DDDDDD;
     border-right-style:solid;
     border-right-color:#000000;
     border-right-width:1px;
+    overflow-y:auto;
 
 }
 .main{
     position:absolute;
     left:250px;
+    height:100%;
+    width: calc(100% - 250px);
     padding-left:10px;
+    text-align:center;
+}
+h1{
+    border-radius: 25px;
+    text-decoration:underline;
+    background-color:#8c1313;
+    border:2px solid #000000;
+    width: 500px;
+    margin-left:auto;
+    margin-right:auto;
+    color:white;
+}
+h2{
+    border-radius: 25px;
+    text-decoration:underline;
+    background-color:#8c1313;
+    border:2px solid #000000;
+    width: 300px;
+    margin-left:auto;
+    margin-right:auto;
+    color:white;
+    font-size:1.1em;
+}
+span{
+    font-size:1.1em;
+}
+
+.formContainer{
+    border:1px solid #000000;
+    width: 400px;
+    margin-left:auto;
+    margin-right:auto;
+}
+.error{
+    font-size:1em;
+    color:#FF0000;
+}
+textarea{
+    resize:none;
+    width:80%;
+    height:200px;
+
+}
+
+ul.feed{
+    list-style-type: none;
+    margin:0;
+    padding:0;
+    width:100%;
+}
+li.feedElement{
+    display:block;
+    background-color:#EEEEEE;
+    border-bottom-style:solid;
+    border-bottom-color:black;
+    border-bottom-width: 2px;
+}
+li.rantElement{
+    text-align:initial;
+}
+
+#map-canvas {
+    width:80%;
+    height: 500px;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+.submittedTable{
+    border-style:solid;
+    border-color: black;
+    width:80%;
+    margin-left:auto;
+    margin-right:auto;
 }

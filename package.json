@@ -10,8 +10,12 @@
     "start": "node index.js"
   },
   "dependencies": {
+    "angular": "^1.6.1",
+    "body-parser": "^1.16.0",
     "ejs": "2.4.1",
-    "express": "4.13.3"
+    "express": "4.13.3",
+    "mongodb": "^2.2.22",
+    "mysql": "^2.13.0"
   },
   "repository": {
     "type": "git",

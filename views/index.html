@@ -1,0 +1,112 @@
+<html ng-app="myApp">
+    <head>
+        <link rel="stylesheet" type="text/css" href="stylesheets/main.css" />
+        <script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>
+        <script type="text/javascript" src="https://maps.google.com/maps/api/js"></script>
+        <script src="js/app.config.js"></script>
+        <script src="js/app.run.js"></script>
+
+        <!--CONTROLLERS-->
+        <script src="js/controllers/signin.controller.js"></script>
+        <script src="js/controllers/navigation.controller.js"></script>
+        <script src="js/controllers/rant.controller.js"></script>
+        <script src="js/controllers/feed.controller.js"></script>
+        <script src="js/controllers/geo.controller.js"></script>
+    </head>
+    <body>
+        <div class="headerBar">
+            <span class="headerElement">Heroku Assignment</span>
+            <span class="headerElement" style="float:right" ng-if="!loggedIn">Not Signed In</span>
+            <span class="headerElement" style="float:right" ng-if="loggedIn">Signed in as: {{user.name}}</span>
+        </div>
+        <ul class="navBar" ng-controller="navigationController">
+            <li class="navElement" ng-click="changePage('post')">Post a New Rant</li>
+            <li class="navElement" ng-click="changePage('geo')">Geographic Information</li>
+            <li class="navElement" ng-click="logout()" style="float:right;" ng-if="loggedIn">Log Out</li>
+        </ul>
+        <div class="leftBar" ng-controller="feedController">
+            <ul class="feed">
+                <li class="feedElement" ng-repeat="item in feedData | orderBy:item.postid:true">{{item.post}}<br/><br/>In: {{item.topic}} <br/>~{{item.username}}, {{item.location}}<br/></li>
+            </ul>
+        </div>
+        <div class="main" ng-if="!loggedIn" ng-controller="signinController">
+            <h1>Registration</h1>
+            <span> In order to make use of this webpage, you must first create an account using the form below!</span>
+            <div class="formContainer">
+                <form ng-submit="submit(info)" novalidate>
+                    <br />
+                    <label for="username">Username: </label>
+                    <br />
+                    <input ng-model="info.username" id="username" type="text">
+                    <br />
+                    <br />
+                    <label for="password">Password: </label>
+                    <br />
+                    <input ng-model="info.password" id="password" type="password">
+                    <br />
+                    <br />
+                    <button type="submit">Register</button>
+                </form>
+            </div>
+            <br /><br/>
+            <h1>Log In</h1>
+            <span>If you have an account, you can sign in here!</span>
+            <div class="formContainer">
+                <form ng-submit="login(loginInfo)" novalidate>
+                    <br />
+                    <label for="username">Username: </label>
+                    <br />
+                    <input ng-model="loginInfo.username" id="lUsername" type="text">
+                    <br />
+                    <br />
+                    <label for="password">Password: </label>
+                    <br />
+                    <input ng-model="loginInfo.password" id="lPassword" type="password">
+                    <br />
+                    <br />
+                    <button type="submit">Sign in</button>
+                    <br />
+                    <span class="error" ng-bind="error"></span>
+                </form>
+            </div>
+        </div>
+        <div class="main" ng-if="loggedIn && isPost=='post'">
+            <form ng-controller="rantController" ng-submit="submitRant()">
+                <h1>Post a Rant</h1>
+                <span>Here, you can post your rant about whatever!</span>
+                <br />
+                <textarea ng-model="rantData.post"></textarea>
+                <br/><br/>
+                <span>Rant Topic:</span>
+                <select ng-options="topic.label as topic.label for topic in topics" ng-model="rantData.topic"></select>
+                <br />
+                <span>Where did this occur?</span>
+                <select ng-options="country.name as country.name for country in country_list" ng-model="rantData.location"></select>
+                <br/><br/>
+                <button type="submit">Submit Rant</button>
+                
+            </form>
+        </div>
+        <div class="main" ng-if="loggedIn && isPost=='geo'">
+            <div ng-controller="geoController">
+                <h1>Geographic Rant Information</h1>
+                <div id="map-canvas"></div>
+                <br/>
+                <div class="submittedTable" ng-show="countries.length>0">
+                    <ul ng-repeat="country in countries">
+                        <h2>{{country}}</h2>
+                        <div ng-repeat="entry in table">
+                            <li class="rantElement">Commercial Rant Count: {{entry.comCount}}</li>
+                            <li class="rantElement">Employee/Employer Rant Count: {{entry.empCount}}</li>
+                            <li class="rantElement">Entertainment Rant Count: {{entry.entCount}}</li>
+                            <li class="rantElement">Politics Rant Count: {{entry.polCount}}</li>
+                            <li class="rantElement">Social Rant Count: {{entry.socCount}}</li>
+                            <li class="rantElement">Technology Rant Count: {{entry.tecCount}}</li>
+                        </div>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+    </body>
+</html>
