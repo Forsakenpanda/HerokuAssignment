@@ -40,10 +40,6 @@
                 }
             })
         }
-        $scope.logout=function(){
-            console.log("called");
-            $rootScope.user={};
-            $rootScope.loggedIn=false;
-        }
+        
     }
 })();
