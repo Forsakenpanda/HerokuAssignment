@@ -1,7 +1,11 @@
+/**
+ * Created by Nick Gregorio, 100514374
+ * Created for Cloud Computing (UOIT)
+ */
 (function(){
     'use strict';
     angular.module('myApp').controller('rantController',rantController);
-
+    //Controller for the rant-submission page. 
     function rantController($scope, $http, $rootScope){
         $scope.rantData={
             post:"",

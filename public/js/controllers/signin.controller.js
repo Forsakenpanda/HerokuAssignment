@@ -1,10 +1,14 @@
+/**
+ * Created by Nick Gregorio, 100514374
+ * Created for Cloud Computing (UOIT)
+ */
 (function(){
     'use strict';
 
     angular
     .module('myApp')
     .controller('signinController', signinController);
-
+    //Controller for signing in, or registering for the app
     function signinController($scope, $http, $rootScope){
         $scope.info = {
             username:"",
