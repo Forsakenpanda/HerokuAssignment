@@ -264,6 +264,8 @@
         },{
             label:"Entertainment"
         },{
+            label:"Politics"
+        },{
             label:"Social"
         },{
             label:"Technology"

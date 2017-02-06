@@ -10,7 +10,7 @@
             method:'GET'
         }).then(function(response){
             console.log(response);
-            $scope.feedData=response.data;
+            $rootScope.feedData=response.data;
         })
         $interval(function(){
              $http({
@@ -18,7 +18,7 @@
                 method:'GET'
             }).then(function(response){
                 console.log(response);
-                $scope.feedData=response.data;
+                $rootScope.feedData=response.data;
             })
         },10000);   
         

@@ -8,5 +8,9 @@
         $scope.changePage = function(pageName){
             $rootScope.isPost=pageName;
         }
+        $scope.logout=function(){
+            $rootScope.user={};
+            $rootScope.loggedIn=false;
+        }
     }
 })();
