@@ -1,4 +1,3 @@
-//Response from a Google API query, to avoid callbacks
 {
  "kind": "fusiontables#sqlresponse",
  "columns": [
